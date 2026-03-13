@@ -1,0 +1,22 @@
+{
+  "name": "grand-line-registry",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "tw:build": "tailwindcss -i ./public/css/tailwind.css -o ./public/css/main.css --watch",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "ejs": "^5.0.1",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.2.1",
+    "daisyui": "^5.5.19",
+    "tailwindcss": "^4.2.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

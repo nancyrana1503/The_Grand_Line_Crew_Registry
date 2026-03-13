@@ -1,0 +1,65 @@
+<html data-theme="light">
+
+<head>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+
+    <%- include("partials/navbar",{title:"Join the Crew"}) %>
+
+        <div class="max-w-xl mx-auto p-6">
+
+            <h2 class="text-2xl font-bold mb-4">Recruit Application</h2>
+
+            <% if(errors && errors.length>0){ %>
+                <div class="alert alert-error mb-4">
+                    <ul>
+                        <% errors.forEach(e=>{ %>
+                            <li>
+                                <%= e %>
+                            </li>
+                            <% }) %>
+                    </ul>
+                </div>
+                <% } %>
+
+                    <form action="/recruit" method="POST">
+
+                        <input name="applicantName" placeholder="Your Name" class="input input-bordered w-full mb-3">
+
+                        <input name="skill" placeholder="Special Skill" class="input input-bordered w-full mb-3">
+
+                        <select name="role" class="select select-bordered w-full mb-3">
+                            <option>Select a role</option>
+                            <option>Navigator</option>
+                            <option>Cook</option>
+                            <option>Sniper</option>
+                            <option>Doctor</option>
+                            <option>Musician</option>
+                            <option>Other</option>
+                        </select>
+
+                        <textarea name="message" class="textarea textarea-bordered w-full mb-3"
+                            placeholder="Why should Luffy let you join?"></textarea>
+
+                        <div class="mb-3">
+                            <label><input type="radio" name="sea" value="East Blue"> East Blue</label>
+                            <label><input type="radio" name="sea" value="West Blue"> West Blue</label>
+                            <label><input type="radio" name="sea" value="North Blue"> North Blue</label>
+                            <label><input type="radio" name="sea" value="South Blue"> South Blue</label>
+                        </div>
+
+                        <label class="mb-3 block">
+                            <input type="checkbox" name="agreeTerms"> I understand the risks of the Grand Line
+                        </label>
+
+                        <button class="btn btn-primary w-full">Submit Application</button>
+
+                    </form>
+
+        </div>
+
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<html data-theme="light">
+
+<head>
+    <link rel="stylesheet" href="/css/main.css" />
+</head>
+
+<body>
+    <%- include("partials/navbar", { title: "The Crew" }) %>
+
+        <div class="text-center p-6">
+            <h1 class="text-4xl font-bold">The Straw Hat Pirates</h1>
+            <p class="opacity-70">
+                Explore the legendary crew sailing the Grand Line
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 p-6">
+            <% crew.forEach(member=> { %>
+
+                <div class="card bg-base-200 shadow-xl">
+                    <div class="card-body">
+                        <h2 class="card-title">
+                            <%= member.name %>
+                        </h2>
+
+                        <p>Role: <%= member.role %>
+                        </p>
+                        <p>Devil Fruit: <%= member.devilFruit %>
+                        </p>
+                        <p>Bounty: <%= member.bounty.toLocaleString() %> Berries</p>
+
+                        <% if (member.status==="active" ) { %>
+                            <span class="badge badge-success">Active</span>
+                            <% } else if (member.status==="pending" ) { %>
+                                <span class="badge badge-warning">Pending Approval</span>
+                                <% } else { %>
+                                    <span class="badge badge-error">Bounty Frozen</span>
+                                    <% } %>
+
+                                        <a href="/crew" class="btn btn-primary mt-2">View All Crew</a>
+                    </div>
+                </div>
+
+                <% }) %>
+        </div>
+
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<html data-theme="light">
+
+<head>
+    <link rel="stylesheet" href="/css/main.css" />
+</head>
+
+<body>
+    <%- include("partials/navbar", { title: "Crew Roster" }) %>
+
+        <div class="p-6">
+            <table class="table w-full">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Role</th>
+                        <th>Devil Fruit</th>
+                        <th>Bounty</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% for (let member of crew) { %>
+
+                        <tr>
+                            <td>
+                                <%= member.id %>
+                            </td>
+                            <td>
+                                <%= member.name %>
+                            </td>
+                            <td>
+                                <%= member.role %>
+                            </td>
+                            <td>
+                                <%= member.devilFruit %>
+                            </td>
+                            <td>
+                                <%= member.bounty.toLocaleString() %>
+                            </td>
+
+                            <td>
+                                <% if (member.status==="active" ) { %>
+                                    <span class="badge badge-success">Active</span>
+
+                                    <% } else if (member.status==="pending" ) { %>
+                                        <span class="badge badge-warning">Pending Approval</span>
+
+                                        <% } else { %>
+                                            <span class="badge badge-error">Bounty Frozen</span>
+                                            <% } %>
+                            </td>
+                        </tr>
+
+                        <% } %>
+                </tbody>
+            </table>
+        </div>
+</body>
+
+</html>

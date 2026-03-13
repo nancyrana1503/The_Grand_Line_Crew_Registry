@@ -1,0 +1,55 @@
+<html data-theme="light">
+
+<head>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+
+    <%- include("partials/navbar",{title:"Secret Log Pose"}) %>
+
+        <div class="p-6">
+
+            <div class="alert alert-info mb-4">
+                <%= log %>
+            </div>
+
+            <h2 class="text-2xl font-bold mb-4">Destination Reached: Wano</h2>
+
+            <table class="table">
+
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Role</th>
+                        <th>Bounty</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <% for(let member of crew){ if(member.status==="active" ){ %>
+
+                        <tr>
+                            <td>
+                                <%= member.name %>
+                            </td>
+                            <td>
+                                <%= member.role %>
+                            </td>
+                            <td>
+                                <%= member.bounty.toLocaleString() %>
+                            </td>
+                        </tr>
+
+                        <% }} %>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+</body>
+
+</html>
